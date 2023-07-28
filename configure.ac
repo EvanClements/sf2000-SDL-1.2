@@ -1001,6 +1001,18 @@ CheckIPod()
     fi
 }
 
+dnl Do the iPod thing
+CheckSF2000()
+{
+    AC_ARG_ENABLE(sf2000,
+[AS_HELP_STRING([--enable-sf2000], [configure SDL to work with the Sf2000 [default=no]])],
+        , enable_sf2000=no)
+
+    # if test x$enable_sf2000 = xyes; then
+        
+    # fi
+}
+
 dnl Find the nanox include and library directories
 CheckNANOX()
 {
@@ -2390,6 +2402,13 @@ case "$host" in
             SOURCES="$SOURCES $srcdir/src/timer/unix/*.c"
             have_timers=yes
         fi
+        ;;
+    mips*-mti-elf*)
+        ARCH=linux
+        CheckDummyAudio
+        CheckSF2000
+        CheckFBCON
+        CheckPTHREAD
         ;;
     *-*-linux*|*-*-uclinux*|*-*-gnu*|*-*-k*bsd*-gnu|*-*-bsdi*|*-*-freebsd*|*-*-dragonfly*|*-*-netbsd*|*-*-openbsd*|*-*-sysv5*|*-*-solaris*|*-*-hpux*|*-*-irix*|*-*-aix*|*-*-osf*)
         case "$host" in
