@@ -39,6 +39,10 @@
 #undef __HAIKU__
 #define __HAIKU__ 1
 #endif
+#if defined(__HCRTOS__)
+#undef __HCRTOS__
+#define __HCRTOS__ 1
+#endif
 #if defined(bsdi) || defined(__bsdi) || defined(__bsdi__)
 #undef __BSDI__
 #define __BSDI__	1
